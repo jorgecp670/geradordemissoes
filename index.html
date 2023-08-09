@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerador de Missões</title>
+</head>
+<body>
+    <div class="mission-generator">
+        <h1>Gerador de Missões - Ordem Paranormal</h1>
+        <button id="generateButton">Gerar Missão</button>
+        <div id="missionOutput" class="mission-output"></div>
+    </div>
+    <script src="script.js"></script>
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyASHUIbzADSRtP-BYWCKdhKspiOObCcCJg",
+  authDomain: "gerador-de-missoes-6a7ea.firebaseapp.com",
+  projectId: "gerador-de-missoes-6a7ea",
+  storageBucket: "gerador-de-missoes-6a7ea.appspot.com",
+  messagingSenderId: "162833583923",
+  appId: "1:162833583923:web:bf47fa4cf66ec6685af846"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+</body>
+</html>
+
