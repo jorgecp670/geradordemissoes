@@ -258,7 +258,7 @@ function generateMission() {
     const palavrasChave5Rolada = getRandomOption(palavrasChave5);
 
     const missionOutput = `
-        <p>O ${sujeito} deve ${acao} em ${local}. Isso está relacionado com ${palavrasChave1Rolada}, ${palavrasChave2Rolada}, ${palavrasChave3Rolada}, ${palavrasChave4Rolada} e ${palavrasChave5Rolada}. No entanto, ${complicacao}. Felizmente, ${aliado} ${aliadoBonus}. Na missão, ainda haverá ${recompensa}. O que os Agentes não esperavam é que ${reviravolta}. ${verdade} ${mas} ${e}</p>
+        <p>O ${sujeito} anda ${acao} em ${local}. Isso está relacionado com ${palavrasChave1Rolada}, ${palavrasChave2Rolada}, ${palavrasChave3Rolada}, ${palavrasChave4Rolada} e ${palavrasChave5Rolada}. No entanto, ${complicacao}. Felizmente, ${aliado} ${aliadoBonus}. Na missão, ainda haverá ${recompensa}. O que os Agentes não esperavam é que ${reviravolta}. ${verdade} ${mas} ${e}</p>
     `;
 
     document.getElementById("missionOutput").innerHTML = missionOutput;
