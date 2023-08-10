@@ -58,6 +58,7 @@ const localOptions = [
 ];
 
 const complicacaoOptions = [
+    "Nenhuma",
     "Combate convencional não é eficaz",
     "Item Amaldiçoado descontrolado",
     "Muitos inocentes afetados",
@@ -78,7 +79,7 @@ const aliadosOptions = [
     "Sim"
 ];
 
-const aliadoTypeOptions = [
+const aliadoTypes = [
     "Item Amaldiçoado",
     "Civil",
     "Policial",
@@ -104,7 +105,7 @@ const recompensasOptions = [
     "Sim"
 ];
 
-const recompensaTypeOptions = [
+const recompensaTypes = [
     "Um nível de Limite de Crédito acima do normal na próxima missão",
     "Uma Arma modificada",
     "Uma Proteção modificada",
@@ -120,36 +121,111 @@ const reviravoltasOptions = [
     "Sim"
 ];
 
-const reviravoltaQuemOptions = [
-    "Um aliado",
-    "A complicação",
-    "Uma vítima",
-    "Um inocente"
+const reviravoltaTypes = [
+    "Um aliado…",
+    "A complicação…",
+    "Uma vítima…",
+    "Um inocente…"
 ];
 
-const reviravoltaVerdadeOptions = [
-    "é o verdadeiro Sujeito",
-    "não é o que parece",
-    "ajuda o Sujeito secretamente",
-    "deu informações falsas"
+const verdadeOptions = [
+    "… é o verdadeiro Sujeito.",
+    "… não é o que parece.",
+    "… ajuda o Sujeito secretamente.",
+    "… deu informações falsas."
 ];
 
-const reviravoltaMasOptions = [
-    "Fez isso pelo bem",
-    "O Sujeito não tem culpa",
-    "É assassinado misteriosamente",
-    "Entra em contato com os Agentes"
+const masOptions = [
+    "Fez isso pelo bem…",
+    "O Sujeito não tem culpa…",
+    "É assassinado misteriosamente…",
+    "Entra em contato com os Agentes…"
 ];
 
-const reviravoltaEOptions = [
-    "há mais inocentes mortos",
-    "há um outro sujeito",
-    "era tudo parte de um jogo",
-    "parar o Sujeito tem um impacto negativo",
-    "tudo foi friamente planejado"
+const eOptions = [
+    "… há mais inocentes mortos.",
+    "… há um outro sujeito.",
+    "… era tudo parte de um jogo.",
+    "… parar o Sujeito tem um impacto negativo.",
+    "… tudo foi friamente planejado."
 ];
 
-// Define other options arrays similarly
+const acoesAgentes = [
+    "Atacar",
+    "Destruir",
+    "Encontrar",
+    "Recuperar",
+    "Capturar",
+    "Proteger",
+    "Salvar",
+    "Explorar",
+    "Sabotar"
+];
+
+const palavrasChave1 = [
+    "Macabro",
+    "Governo",
+    "Alienação",
+    "Religião",
+    "Maus tratos",
+    "Insatisfação",
+    "União",
+    "Doutrina",
+    "Injustiça",
+    "Violência"
+];
+
+const palavrasChave2 = [
+    "Energia",
+    "Engrenagem",
+    "Ajuste",
+    "Morte",
+    "Tristeza",
+    "Agonia",
+    "Gritos",
+    "Fome",
+    "Tortura",
+    "Motivo"
+];
+
+const palavrasChave3 = [
+    "Desonra",
+    "Glória",
+    "Traição",
+    "Sangue",
+    "Assassinato",
+    "Luto",
+    "Corrupção",
+    "Escuridão",
+    "Frio",
+    "Armadilha"
+];
+
+const palavrasChave4 = [
+    "Mofo",
+    "Pavor",
+    "Correntes",
+    "Prisão",
+    "Perigo",
+    "Segredo",
+    "Cadáver",
+    "Cemitério",
+    "Alma",
+    "Profundeza"
+];
+
+const palavrasChave5 = [
+    "Realidade",
+    "Fantoche",
+    "Conhecimento",
+    "Invocação",
+    "Flagelo",
+    "Pacto",
+    "Velho",
+    "Ritual",
+    "Sofrimento",
+    "Imortal"
+];
 
 function getRandomOption(options) {
     const randomIndex = Math.floor(Math.random() * options.length);
@@ -163,28 +239,29 @@ function generateMission() {
     const local = getRandomOption(localOptions);
     const complicacao = getRandomOption(complicacaoOptions);
     const terAliados = getRandomOption(aliadosOptions) === "Sim";
-    const aliado = terAliados ? getRandomOption(aliadoTypeOptions) : "Nenhum aliado";
+    const aliado = terAliados ? getRandomOption(aliadoTypes) : "Nenhum aliado";
     const terAliadoBonus = terAliados && aliado === "Aliado que concede bônus (Pag. 155)";
     const aliadoBonus = terAliadoBonus ? getRandomOption(aliadoBonusOptions) : "Nenhum bônus";
     const terRecompensas = getRandomOption(recompensasOptions) === "Sim";
-    const recompensa = terRecompensas ? getRandomOption(recompensaTypeOptions) : "Nenhuma recompensa";
+    const recompensa = terRecompensas ? getRandomOption(recompensaTypes) : "Nenhuma recompensa";
     const terReviravoltas = getRandomOption(reviravoltasOptions) === "Sim";
-    const reviravolta = terReviravoltas ? generateReviravolta() : "Nenhuma reviravolta";
+    const reviravolta = terReviravoltas ? getRandomOption(reviravoltaTypes) : "Nenhuma reviravolta";
+    const verdade = terReviravoltas ? getRandomOption(verdadeOptions) : "";
+    const mas = terReviravoltas ? getRandomOption(masOptions) : "";
+    const e = terReviravoltas ? getRandomOption(eOptions) : "";
+
+    const acaoAgentes = getRandomOption(acoesAgentes);
+    const palavrasChave1Rolada = getRandomOption(palavrasChave1);
+    const palavrasChave2Rolada = getRandomOption(palavrasChave2);
+    const palavrasChave3Rolada = getRandomOption(palavrasChave3);
+    const palavrasChave4Rolada = getRandomOption(palavrasChave4);
+    const palavrasChave5Rolada = getRandomOption(palavrasChave5);
 
     const missionOutput = `
-        <p>O ${sujeito} anda ${acao} em ${local}. Porém ${complicacao}. Felizmente há ${aliado} ${aliadoBonus}. Na missão ainda haverá ${recompensa}. O que os Agentes não esperavam é que ${reviravolta}.</p>
+        <p>O ${sujeito} deve ${acao} em ${local}. Isso está relacionado com ${palavrasChave1Rolada}, ${palavrasChave2Rolada}, ${palavrasChave3Rolada}, ${palavrasChave4Rolada} e ${palavrasChave5Rolada}. No entanto, ${complicacao}. Felizmente, ${aliado} ${aliadoBonus}. Na missão, ainda haverá ${recompensa}. O que os Agentes não esperavam é que ${reviravolta}. ${verdade} ${mas} ${e}</p>
     `;
 
     document.getElementById("missionOutput").innerHTML = missionOutput;
-}
-
-function generateReviravolta() {
-    const quem = getRandomOption(reviravoltaQuemOptions);
-    const naVerdade = getRandomOption(reviravoltaVerdadeOptions);
-    const mas = getRandomOption(reviravoltaMasOptions);
-    const e = getRandomOption(reviravoltaEOptions);
-
-    return `Um aliado ${quem} na verdade ${naVerdade}. Mas ${mas}. E ${e}.`;
 }
 
 const generateButton = document.getElementById("generateButton");
