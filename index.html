@@ -13,23 +13,23 @@
         <div id="missionOutput" class="mission-output"></div>
     </div>
     <script src="script.js"></script>
-    // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+    <!-- TODO: Import other Firebase SDKs if needed -->
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyASHUIbzADSRtP-BYWCKdhKspiOObCcCJg",
-  authDomain: "gerador-de-missoes-6a7ea.firebaseapp.com",
-  projectId: "gerador-de-missoes-6a7ea",
-  storageBucket: "gerador-de-missoes-6a7ea.appspot.com",
-  messagingSenderId: "162833583923",
-  appId: "1:162833583923:web:bf47fa4cf66ec6685af846"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+    </script>
 </body>
 </html>
+
 
